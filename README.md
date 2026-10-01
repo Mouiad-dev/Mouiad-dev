@@ -22,19 +22,7 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white" alt="LangChain"/>
-  <img src="https://img.shields.io/badge/LangGraph-1C3C3C?style=flat-square&logo=langgraph&logoColor=white" alt="LangGraph"/>
-  <img src="https://img.shields.io/badge/LlamaIndex-6B21A8?style=flat-square" alt="LlamaIndex"/>
-  <img src="https://img.shields.io/badge/Pydantic_AI-E92063?style=flat-square&logo=pydantic&logoColor=white" alt="Pydantic AI"/>
-  <img src="https://img.shields.io/badge/MCP-0F172A?style=flat-square&logo=modelcontextprotocol&logoColor=white" alt="MCP"/>
-  <img src="https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=claude&logoColor=white" alt="Claude Code"/>
-  <img src="https://img.shields.io/badge/Anthropic-191919?style=flat-square&logo=anthropic&logoColor=white" alt="Anthropic"/>
-  <img src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI"/>
-  <img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face"/>
-  <img src="https://img.shields.io/badge/pgvector-336791?style=flat-square&logo=postgresql&logoColor=white" alt="pgvector"/>
-  <img src="https://img.shields.io/badge/Ollama-000000?style=flat-square&logo=ollama&logoColor=white" alt="Ollama"/>
-  <img src="https://img.shields.io/badge/Langfuse-0A0A0A?style=flat-square" alt="Langfuse"/>
-  <img src="https://img.shields.io/badge/Temporal-141414?style=flat-square&logo=temporal&logoColor=white" alt="Temporal"/>
+  <img src="assets/ai-stack.svg" alt="LangChain, LangGraph, LlamaIndex, Pydantic AI, MCP, Claude Code, Anthropic, OpenAI, Hugging Face, pgvector, Ollama, Langfuse, Temporal"/>
 </p>
 
 <details>
