@@ -139,10 +139,14 @@ Detectron2 object detection, benchmarked for speed on CPU vs VPU. It uses fine-t
 ### Activity
 
 <p align="center">
+  <a href="https://mouiad-dev.github.io/Mouiad-dev/">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Mouiad-dev/Mouiad-dev/output/profile-night-rainbow.svg">
     <img alt="3D contribution graph" width="100%" src="https://raw.githubusercontent.com/Mouiad-dev/Mouiad-dev/output/profile-green-animate.svg">
   </picture>
+  </a>
+  <br/>
+  <a href="https://mouiad-dev.github.io/Mouiad-dev/"><b>▶ Open the interactive 3D version</b></a> <sub>· drag to rotate · pick any year since 2020</sub>
 </p>
 
 <p align="center">

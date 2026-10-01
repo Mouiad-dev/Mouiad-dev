@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mouiad Ali · 3D contributions</title>
+<meta name="description" content="Interactive 3D contribution graph for Mouiad-dev. Drag to rotate, scroll to zoom.">
+<style>
+  :root { --bg:#f6f8fa; --panel:#ffffff; --text:#1f2328; --muted:#656d76; --line:#d0d7de; --accent:#1d4ed8; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0d1117; --panel:#161b22; --text:#e6edf3; --muted:#8b949e; --line:#30363d; --accent:#58a6ff; }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--text);
+    font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; overflow:hidden; }
+  #scene { position:fixed; inset:0; touch-action:none; }
+  header { position:fixed; top:16px; left:16px; right:16px; display:flex; flex-wrap:wrap; gap:12px;
+    align-items:center; justify-content:space-between; pointer-events:none; }
+  header > * { pointer-events:auto; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:10px 14px; }
+  h1 { font-size:15px; margin:0; font-weight:600; }
+  h1 a { color:inherit; text-decoration:none; }
+  .sub { color:var(--muted); font-size:12px; }
+  .total { font-size:22px; font-weight:600; font-variant-numeric:tabular-nums; }
+  .years { display:flex; flex-wrap:wrap; gap:6px; }
+  .years button { font:inherit; font-size:13px; color:var(--text); background:var(--panel); border:1px solid var(--line);
+    border-radius:8px; padding:5px 11px; cursor:pointer; }
+  .years button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .years button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  #tip { position:fixed; pointer-events:none; background:var(--panel); border:1px solid var(--line); border-radius:8px;
+    padding:6px 10px; font-size:12px; white-space:nowrap; opacity:0; transition:opacity .12s; }
+  #tip b { font-variant-numeric:tabular-nums; }
+  footer { position:fixed; bottom:14px; left:16px; right:16px; display:flex; justify-content:space-between; gap:12px;
+    color:var(--muted); font-size:12px; pointer-events:none; flex-wrap:wrap; }
+  footer a { color:var(--accent); pointer-events:auto; }
+  .legend { display:flex; align-items:center; gap:4px; }
+  .legend i { width:11px; height:11px; border-radius:2px; display:inline-block; }
+  #status { position:fixed; inset:0; display:grid; place-items:center; color:var(--muted); }
+  @media (max-width:600px) { .total { font-size:18px; } }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="scene" aria-label="3D contribution graph. Drag to rotate, scroll or pinch to zoom."></div>
+<div id="status">Loading contributions…</div>
+
+<header>
+  <div class="card">
+    <h1><a href="https://github.com/Mouiad-dev">Mouiad Ali</a></h1>
+    <div><span class="total" id="total">–</span> <span class="sub" id="totalLabel">contributions</span></div>
+  </div>
+  <nav class="years card" id="years" aria-label="Choose year"></nav>
+</header>
+
+<div id="tip" role="status"></div>
+
+<footer>
+  <span>Drag to rotate · scroll or pinch to zoom · right-drag to pan · <span id="updated"></span></span>
+  <span class="legend">Less <i data-l="0"></i><i data-l="1"></i><i data-l="2"></i><i data-l="3"></i><i data-l="4"></i> More
+    · <a href="https://github.com/Mouiad-dev">Back to profile</a></span>
+</footer>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+const PALETTE = dark
+  ? ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
+  : ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"];
+document.querySelectorAll(".legend i").forEach(i => i.style.background = PALETTE[+i.dataset.l]);
+
+const res = await fetch("contributions.json", { cache: "no-store" }).catch(() => null);
+if (!res || !res.ok) { document.getElementById("status").textContent = "Couldn't load contributions.json."; throw 0; }
+const data = await res.json();
+document.getElementById("status").remove();
+document.getElementById("updated").textContent = `updated ${data.generated}`;
+
+// --- scene ---
+const host = document.getElementById("scene");
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+host.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.1, 1000);
+// back the camera off on narrow screens so the whole year fits
+const fit = () => Math.max(1, 1.2 / camera.aspect);
+camera.position.set(-38, 34, 46).multiplyScalar(fit());
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.maxPolarAngle = Math.PI * 0.48;
+controls.minDistance = 15;
+controls.maxDistance = 220;
+controls.autoRotate = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+controls.autoRotateSpeed = 0.6;
+const stopSpin = () => { controls.autoRotate = false; };
+renderer.domElement.addEventListener("pointerdown", stopSpin);
+renderer.domElement.addEventListener("wheel", stopSpin, { passive: true });
+
+scene.add(new THREE.HemisphereLight(dark ? 0x9fb4d0 : 0xffffff, dark ? 0x0b0f14 : 0xb8c2cc, dark ? 1.2 : 1.6));
+const sun = new THREE.DirectionalLight(0xffffff, dark ? 1.6 : 2.0);
+sun.position.set(-30, 60, 25);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -45, right: 45, top: 25, bottom: -25, near: 1, far: 150 });
+scene.add(sun);
+
+const SIZE = 0.82, STEP = 1;
+const box = new THREE.BoxGeometry(SIZE, 1, SIZE);
+box.translate(0, 0.5, 0);
+let bars = null, plate = null, cells = [];
+
+function build(year) {
+  if (bars) { scene.remove(bars); bars.dispose(); }
+  if (plate) { scene.remove(plate); plate.geometry.dispose(); }
+  const weeks = data.years[year].weeks;
+  cells = [];
+  weeks.forEach((w, wi) => w.forEach(([date, count, level]) => {
+    cells.push({ date, count, level, x: wi, z: new Date(date + "T00:00:00Z").getUTCDay() });
+  }));
+  const max = Math.max(1, ...cells.map(c => c.count));
+  const W = weeks.length;
+
+  bars = new THREE.InstancedMesh(box, new THREE.MeshStandardMaterial({ roughness: 0.55, metalness: 0.05 }), cells.length);
+  bars.castShadow = bars.receiveShadow = true;
+  const m = new THREE.Matrix4(), color = new THREE.Color();
+  cells.forEach((c, i) => {
+    const h = c.count ? 0.4 + 11 * Math.sqrt(c.count / max) : 0.12;
+    m.makeScale(1, h, 1).setPosition((c.x - W / 2) * STEP, 0, (c.z - 3) * STEP);
+    bars.setMatrixAt(i, m);
+    bars.setColorAt(i, color.set(PALETTE[c.level]));
+    c.h = h;
+  });
+  scene.add(bars);
+
+  plate = new THREE.Mesh(
+    new THREE.BoxGeometry(W * STEP + 1.4, 0.5, 7 * STEP + 1.4),
+    new THREE.MeshStandardMaterial({ color: dark ? 0x1c2128 : 0xdfe4ea, roughness: 0.9 })
+  );
+  plate.position.y = -0.25;
+  plate.receiveShadow = true;
+  scene.add(plate);
+
+  animateCount(data.years[year].total);
+  document.getElementById("totalLabel").textContent = `contributions in ${year}`;
+}
+
+let countTimer;
+function animateCount(target) {
+  const el = document.getElementById("total"), start = performance.now();
+  cancelAnimationFrame(countTimer);
+  const tick = t => {
+    const p = Math.min(1, (t - start) / 700);
+    el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString();
+    if (p < 1) countTimer = requestAnimationFrame(tick);
+  };
+  countTimer = requestAnimationFrame(tick);
+}
+
+// --- year picker ---
+const years = Object.keys(data.years).sort();
+const nav = document.getElementById("years");
+const params = new URLSearchParams(location.search);
+let current = years.includes(params.get("year")) ? params.get("year") : years[years.length - 1];
+for (const y of years) {
+  const b = document.createElement("button");
+  b.textContent = y;
+  b.setAttribute("aria-pressed", String(y === current));
+  b.onclick = () => {
+    current = y;
+    nav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    history.replaceState(null, "", `?year=${y}`);
+    build(y);
+  };
+  nav.appendChild(b);
+}
+build(current);
+
+// --- hover tooltip ---
+const tip = document.getElementById("tip"), ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+let hover = -1;
+const highlight = new THREE.Color();
+renderer.domElement.addEventListener("pointermove", e => {
+  ptr.set((e.clientX / innerWidth) * 2 - 1, -(e.clientY / innerHeight) * 2 + 1);
+  ray.setFromCamera(ptr, camera);
+  const hit = ray.intersectObject(bars)[0];
+  if (hover >= 0) bars.setColorAt(hover, highlight.set(PALETTE[cells[hover].level]));
+  hover = hit ? hit.instanceId : -1;
+  if (hover >= 0) {
+    const c = cells[hover];
+    bars.setColorAt(hover, highlight.set(dark ? "#f2cc60" : "#bf8700"));
+    const when = new Date(c.date + "T00:00:00Z").toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+    tip.innerHTML = `<b>${c.count}</b> contribution${c.count === 1 ? "" : "s"} · ${when}`;
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8) + "px";
+    tip.style.top = (e.clientY + 14) + "px";
+    tip.style.opacity = 1;
+  } else tip.style.opacity = 0;
+  bars.instanceColor.needsUpdate = true;
+});
+renderer.domElement.addEventListener("pointerleave", () => { tip.style.opacity = 0; });
+
+addEventListener("resize", () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
+</script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 name: Profile dashboard assets
 
-# Generates the contribution snake and the 3D contribution graph,
-# then publishes them to the `output` branch for the README to embed.
+# Generates the contribution snake, the 3D contribution graph, and the
+# interactive 3D page (web/) with its data, then publishes them to the
+# `output` branch. GitHub Pages serves that branch.
 on:
   push:
     branches: [profile-previews]
@@ -16,6 +17,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -30,6 +33,14 @@ jobs:
 
       - name: Collect 3D graphs
         run: cp profile-3d-contrib/*.svg dist/
+
+      - name: Build interactive 3D page
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/contributions_json.py "${{ github.repository_owner }}" dist/contributions.json
+          cp web/index.html dist/index.html
+          touch dist/.nojekyll
 
       - uses: crazy-max/ghaction-github-pages@v5
         with:
