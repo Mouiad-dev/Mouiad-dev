@@ -18,11 +18,17 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
 ### Tech stack
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=py,django,fastapi,postgres,mysql,redis,docker,aws,githubactions,linux,grafana,prometheus&perline=12" alt="Python, Django, FastAPI, PostgreSQL, MySQL, Redis, Docker, AWS, GitHub Actions, Linux, Grafana, Prometheus"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stack-backend-dark.svg">
+    <img alt="Python, Django, FastAPI, PostgreSQL, MySQL, Redis, Docker, AWS, GitHub Actions, Linux, Grafana, Prometheus" src="assets/stack-backend-light.svg">
+  </picture>
 </p>
 
 <p align="center">
-  <img src="assets/ai-stack.svg" alt="LangChain, LangGraph, LlamaIndex, Pydantic AI, MCP, Claude Code, Anthropic, OpenAI, Hugging Face, pgvector, Ollama, Langfuse, Temporal"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-dark.svg">
+    <img alt="LangChain, LangGraph, LlamaIndex, Pydantic AI, MCP, Claude Code, Anthropic, OpenAI, Hugging Face, pgvector, Ollama, Langfuse, Temporal" src="assets/stack-ai-light.svg">
+  </picture>
 </p>
 
 <details>
