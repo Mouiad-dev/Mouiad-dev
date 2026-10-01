@@ -20,7 +20,7 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/stack-backend-dark.svg">
-    <img alt="Python, Django, FastAPI, PostgreSQL, MySQL, Redis, Docker, AWS, GitHub Actions, Linux, Grafana, Prometheus" src="assets/stack-backend-light.svg">
+    <img alt="Python, Django, FastAPI, PostgreSQL, MySQL, SQLAlchemy, Redis, Docker, AWS, GitHub Actions, Linux, Grafana, Prometheus" src="assets/stack-backend-light.svg">
   </picture>
 </p>
 
@@ -39,7 +39,7 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
 | LLM APIs and structured output | Anthropic SDK, OpenAI SDK, OpenRouter, Pydantic v2, instructor, LiteLLM |
 | Tool calling and MCP | MCP SDK, FastMCP, Streamable HTTP, MCP Inspector, OAuth 2.1 |
 | Coding agents | Claude Code (CLAUDE.md, hooks, subagents, plan mode) |
-| RAG and data | PostgreSQL + pgvector, LlamaIndex, BM25 hybrid search, BGE/Cohere rerankers, RAG vs CAG |
+| RAG and data | PostgreSQL + pgvector, SQLAlchemy 2 + Alembic, LlamaIndex, BM25 hybrid search, BGE/Cohere rerankers, RAG vs CAG |
 | Agents and orchestration | LangChain, LangGraph (checkpointers, human-in-the-loop), Pydantic AI, CrewAI, Temporal, n8n |
 | Memory and context | Prompt caching, context compression, Mem0, Zep, Letta |
 | Evals and observability | Langfuse, RAGAS, LangSmith, Arize Phoenix, Promptfoo, DeepEval, Logfire, Prometheus, Grafana |

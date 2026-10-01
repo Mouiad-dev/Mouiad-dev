@@ -17,7 +17,8 @@ LABEL = {"light": "#1f2328", "dark": "#c9d1d9"}
 # (label, icon file, override colour or None). "skill-*" files are complete tiles.
 BACKEND = [
     ("Python", "skill-py", None), ("Django", "skill-django", None), ("FastAPI", "skill-fastapi", None),
-    ("PostgreSQL", "skill-postgres", None), ("MySQL", "skill-mysql", None), ("Redis", "skill-redis", None),
+    ("PostgreSQL", "skill-postgres", None), ("MySQL", "skill-mysql", None), ("SQLAlchemy", "sqlalchemy", "#F0613F"),
+    ("Redis", "skill-redis", None),
     ("Docker", "skill-docker", None), ("AWS", "skill-aws", None), ("GH Actions", "skill-githubactions", None),
     ("Linux", "skill-linux", None), ("Grafana", "skill-grafana", None), ("Prometheus", "skill-prometheus", None),
 ]
