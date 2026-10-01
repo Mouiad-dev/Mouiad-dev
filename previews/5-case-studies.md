@@ -16,13 +16,13 @@ Backend engineer (Python, Django), moving into AI engineering. I care about one 
 
 ```mermaid
 flowchart LR
-    D[Documents<br/>PDF · OCR] --> I[Ingestion<br/>extract → chunk → embed]
-    I --> V[(pgvector)]
-    Q[Question<br/>AR / EN] --> R{retrieval.mode}
+    D["Documents<br/>PDF · OCR"] --> I["Ingestion<br/>extract → chunk → embed"]
+    I --> V[("pgvector")]
+    Q["Question<br/>AR / EN"] --> R{"retrieval.mode"}
     V --> R
-    R -->|naive · hybrid · hyde · crag · graph · agentic| K[Rerank]
-    K --> G[Grounded answer<br/>+ citations]
-    G --> E[Evals<br/>recall@k · faithfulness · latency]
+    R -->|"naive · hybrid · hyde · crag · graph · agentic"| K["Rerank"]
+    K --> G["Grounded answer<br/>+ citations"]
+    G --> E["Evals<br/>recall@k · faithfulness · latency"]
 ```
 
 **Result.** Each technique has to earn its place by moving a number. → [Repo](https://github.com/Mouiad-dev/RAG-Lab)
@@ -37,10 +37,10 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[api.py<br/>FastAPI] --> B[benchmark.py<br/>break-even logic]
-    B --> P[[LLMProvider Protocol]]
-    F[fake_provider] -.implements.-> P
-    N[anthropic_provider] -.implements.-> P
+    A["api.py<br/>FastAPI"] --> B["benchmark.py<br/>break-even logic"]
+    B --> P[["LLMProvider Protocol"]]
+    F["fake_provider"] -. implements .-> P
+    N["anthropic_provider"] -. implements .-> P
 ```
 
 **Result.** It reports negative savings when caching loses money, rather than always claiming a win. → [Repo](https://github.com/Mouiad-dev/prompt-cache-benchmark)
