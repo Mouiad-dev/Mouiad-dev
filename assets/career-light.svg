@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="302" viewBox="0 0 900 302" role="img" aria-label="Career as a git log: 2018 SCASE AI intern, 2020 KUWAITNET Software developer, 2023 tigerlab Software developer, 2025 tigerlab Senior backend engineer, 2025 LLM systems AI engineering">
+<style>
+.l{font:14.5px ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;opacity:0;animation:in .5s ease forwards}
+.c{animation:blink 1s step-end infinite 3.70s}
+@keyframes in{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.l{animation:none;opacity:1}.c{animation:none}}
+</style>
+<rect x=".5" y=".5" width="899" height="301" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+<path d="M.5 44V12.5A12 12 0 0 1 12.5 .5h875a12 12 0 0 1 12 12V44z" fill="#f6f8fa"/>
+<line x1="0" y1="44" x2="900" y2="44" stroke="#d0d7de"/>
+<circle cx="24" cy="22" r="6" fill="#ff5f57"/><circle cx="44" cy="22" r="6" fill="#febc2e"/><circle cx="64" cy="22" r="6" fill="#28c840"/>
+<text x="450.0" y="27" text-anchor="middle" fill="#656d76" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13">mouiad@career: ~</text>
+<text class="l" x="24" y="72" style="animation-delay:0.40s"><tspan fill="#1a7f37">$</tspan> <tspan fill="#1f2328">git log --oneline --reverse career</tspan></text>
+<text class="l" x="24" y="102" style="animation-delay:0.95s"><tspan fill="#9a6700">a1f3c02</tspan>  <tspan fill="#656d76">2018</tspan>  <tspan fill="#0969da" font-weight="600">SCASE</tspan><tspan fill="#1f2328"> · AI intern</tspan><tspan fill="#656d76"> — </tspan><tspan fill="#1a7f37">lane detection · Detectron2 object detection</tspan></text>
+<text class="l" x="24" y="132" style="animation-delay:1.50s"><tspan fill="#9a6700">4be91d7</tspan>  <tspan fill="#656d76">2020</tspan>  <tspan fill="#0969da" font-weight="600">KUWAITNET</tspan><tspan fill="#1f2328"> · Software developer</tspan><tspan fill="#656d76"> — </tspan><tspan fill="#1a7f37">Py2 → Py3 / Django 1.8 → 3.2, +45% perf</tspan></text>
+<text class="l" x="24" y="162" style="animation-delay:2.05s"><tspan fill="#9a6700">7c2e5a9</tspan>  <tspan fill="#656d76">2023</tspan>  <tspan fill="#0969da" font-weight="600">tigerlab</tspan><tspan fill="#1f2328"> · Software developer</tspan><tspan fill="#656d76"> — </tspan><tspan fill="#1a7f37">Claim Journey · −20% external API calls</tspan></text>
+<text class="l" x="24" y="192" style="animation-delay:2.60s"><tspan fill="#9a6700">9d04b11</tspan>  <tspan fill="#656d76">2025</tspan>  <tspan fill="#0969da" font-weight="600">tigerlab</tspan><tspan fill="#1f2328"> · Senior backend engineer</tspan><tspan fill="#656d76"> — </tspan><tspan fill="#1a7f37">−30% system load · SSO · scoped permissions</tspan></text>
+<text class="l" x="24" y="222" style="animation-delay:3.15s"><tspan fill="#9a6700">e5a7f30</tspan>  <tspan fill="#656d76">2025</tspan>  <tspan fill="#0969da" font-weight="600">LLM systems</tspan><tspan fill="#1f2328"> · AI engineering</tspan><tspan fill="#656d76"> — </tspan><tspan fill="#1a7f37">RAG · MCP · agents · evals, at work and in my lab</tspan> <tspan fill="#1b7c83">(HEAD → now)</tspan></text>
+<text class="l" x="24" y="252" style="animation-delay:3.70s"><tspan fill="#1a7f37">$</tspan> <tspan class="c" fill="#1f2328">█</tspan></text>
+</svg>
