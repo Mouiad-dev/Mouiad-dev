@@ -4,6 +4,7 @@ Logos live in scripts/icons/: skill-*.svg are skillicons tiles, the rest come
 from @lobehub/icons and simple-icons and are drawn on a matching tile.
 Edit BACKEND / AI below, then run:  python scripts/stack_icons_svg.py
 """
+import hashlib
 import re
 from pathlib import Path
 
@@ -79,9 +80,18 @@ def build(items: list, per_row: int, theme: str) -> str:
 
 
 if __name__ == "__main__":
-    out = HERE.parent / "assets"
+    # File names carry a content hash so browsers and GitHub's raw cache never
+    # serve a stale image; README.md is rewritten to point at the new names.
+    root = HERE.parent
+    out = root / "assets"
+    readme = (root / "README.md").read_text(encoding="utf-8")
     for group, items, per_row in (("backend", BACKEND, 7), ("ai", AI, 7)):
         for theme in LABEL:
-            path = out / f"stack-{group}-{theme}.svg"
-            path.write_text(build(items, per_row, theme), encoding="utf-8")
-            print("wrote", path)
+            svg = build(items, per_row, theme)
+            name = f"stack-{group}-{theme}.{hashlib.sha1(svg.encode()).hexdigest()[:8]}.svg"
+            for old in out.glob(f"stack-{group}-{theme}*.svg"):
+                old.unlink()
+            (out / name).write_text(svg, encoding="utf-8")
+            readme = re.sub(rf"assets/stack-{group}-{theme}[^\"']*\.svg(\?v=\d+)?", f"assets/{name}", readme)
+            print("wrote", name)
+    (root / "README.md").write_text(readme, encoding="utf-8", newline="\n")

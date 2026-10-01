@@ -19,15 +19,15 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/stack-backend-dark.svg?v=3">
-    <img alt="Python, Django, FastAPI, PostgreSQL, MySQL, SQLAlchemy, Redis, Docker, AWS (basics), GitHub Actions, Linux, Grafana, Prometheus" src="assets/stack-backend-light.svg?v=3">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stack-backend-dark.80f430c3.svg">
+    <img alt="Python, Django, FastAPI, PostgreSQL, MySQL, SQLAlchemy, Redis, Docker, AWS (basics), GitHub Actions, Linux, Grafana, Prometheus" src="assets/stack-backend-light.7bc064c1.svg">
   </picture>
 </p>
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-dark.svg?v=3">
-    <img alt="LangChain, LangGraph, LlamaIndex, Pydantic AI, MCP, Claude Code, Anthropic, OpenAI, Hugging Face, pgvector, Ollama, Langfuse, Temporal" src="assets/stack-ai-light.svg?v=3">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-dark.430a3d2f.svg">
+    <img alt="LangChain, LangGraph, LlamaIndex, Pydantic AI, MCP, Claude Code, Anthropic, OpenAI, Hugging Face, pgvector, Ollama, Langfuse, Temporal" src="assets/stack-ai-light.59debdfe.svg">
   </picture>
 </p>
 
