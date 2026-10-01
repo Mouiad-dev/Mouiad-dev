@@ -63,11 +63,11 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
 
 <table align="center">
 <tr>
-<td align="center" width="20%"><h2>7+</h2><sub>years shipping<br/>Python and Django</sub></td>
-<td align="center" width="20%"><h2>−30%</h2><sub>system load after<br/>killing N+1 queries</sub></td>
-<td align="center" width="20%"><h2>+45%</h2><sub>performance from the<br/>Py2 → Py3 migration</sub></td>
-<td align="center" width="20%"><h2>−20%</h2><sub>external API calls via<br/>a caching middleware</sub></td>
-<td align="center" width="20%"><h2>75%</h2><sub>unit-test coverage<br/>on core modules</sub></td>
+<td align="center" width="20%"><h2>7+</h2><sub>years of<br/>Python · Django</sub></td>
+<td align="center" width="20%"><h2>−30%</h2><sub>system load<br/>N+1 fixes</sub></td>
+<td align="center" width="20%"><h2>+45%</h2><sub>faster after<br/>Py2 → Py3</sub></td>
+<td align="center" width="20%"><h2>−20%</h2><sub>external calls<br/>caching layer</sub></td>
+<td align="center" width="20%"><h2>75%</h2><sub>test coverage<br/>core modules</sub></td>
 </tr>
 </table>
 
