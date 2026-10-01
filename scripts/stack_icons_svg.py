@@ -19,7 +19,7 @@ BACKEND = [
     ("Python", "skill-py", None), ("Django", "skill-django", None), ("FastAPI", "skill-fastapi", None),
     ("PostgreSQL", "skill-postgres", None), ("MySQL", "skill-mysql", None), ("SQLAlchemy", "sqlalchemy", "#F0613F"),
     ("Redis", "skill-redis", None),
-    ("Docker", "skill-docker", None), ("AWS", "skill-aws", None), ("GH Actions", "skill-githubactions", None),
+    ("Docker", "skill-docker", None), ("AWS basics", "skill-aws", None), ("GH Actions", "skill-githubactions", None),
     ("Linux", "skill-linux", None), ("Grafana", "skill-grafana", None), ("Prometheus", "skill-prometheus", None),
 ]
 AI = [

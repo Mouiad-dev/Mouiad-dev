@@ -20,7 +20,7 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/stack-backend-dark.svg">
-    <img alt="Python, Django, FastAPI, PostgreSQL, MySQL, SQLAlchemy, Redis, Docker, AWS, GitHub Actions, Linux, Grafana, Prometheus" src="assets/stack-backend-light.svg">
+    <img alt="Python, Django, FastAPI, PostgreSQL, MySQL, SQLAlchemy, Redis, Docker, AWS (basics), GitHub Actions, Linux, Grafana, Prometheus" src="assets/stack-backend-light.svg">
   </picture>
 </p>
 
@@ -32,7 +32,7 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
 </p>
 
 <details>
-<summary><b>Full AI toolbox, by concern</b></summary>
+<summary><b>Full toolbox, by concern</b></summary>
 
 | Concern | Tools |
 |---|---|
@@ -45,6 +45,7 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
 | Evals and observability | Langfuse, RAGAS, LangSmith, Arize Phoenix, Promptfoo, DeepEval, Logfire, Prometheus, Grafana |
 | Safety | Guardrails AI, NeMo Guardrails, Presidio (PII), sandboxed execution (Docker, E2B) |
 | Models and serving | Claude, OpenAI, Bedrock, Ollama, vLLM, llama.cpp, Hugging Face Transformers |
+| Cloud (AWS, working knowledge) | S3 (private buckets, pre-signed URLs), IAM, Secrets Manager, EC2, RDS, VPC, EventBridge, QuickSight, Bedrock |
 
 </details>
 
