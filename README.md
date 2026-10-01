@@ -61,13 +61,13 @@ I'm a **Senior Backend Engineer at [tigerlab](https://www.tigerlab.com/)** with 
   <img alt="Career as a git log: 2018 SCASE AI intern, 2020 KUWAITNET, 2023 tigerlab developer, 2025 tigerlab senior backend engineer, 2025 LLM systems" width="100%" src="assets/career-light.svg">
 </picture>
 
-<table align="center">
+<table width="100%">
 <tr>
-<td align="center" width="20%"><h2>7+</h2><sub>years of<br/>Python · Django</sub></td>
-<td align="center" width="20%"><h2>−30%</h2><sub>system load<br/>N+1 fixes</sub></td>
-<td align="center" width="20%"><h2>+45%</h2><sub>faster after<br/>Py2 → Py3</sub></td>
-<td align="center" width="20%"><h2>−20%</h2><sub>external calls<br/>caching layer</sub></td>
-<td align="center" width="20%"><h2>75%</h2><sub>test coverage<br/>core modules</sub></td>
+<td align="center" width="20%"><h2>7+</h2><sub>years&nbsp;of<br/>Python&nbsp;·&nbsp;Django</sub></td>
+<td align="center" width="20%"><h2>−30%</h2><sub>system&nbsp;load<br/>N+1&nbsp;fixes</sub></td>
+<td align="center" width="20%"><h2>+45%</h2><sub>faster&nbsp;after<br/>Py2&nbsp;→&nbsp;Py3</sub></td>
+<td align="center" width="20%"><h2>−20%</h2><sub>external&nbsp;calls<br/>caching&nbsp;layer</sub></td>
+<td align="center" width="20%"><h2>75%</h2><sub>test&nbsp;coverage<br/>core&nbsp;modules</sub></td>
 </tr>
 </table>
 
